@@ -119,7 +119,7 @@ function global() {
         let ctx = document.querySelector("#color-gradient").getContext("2d");
         let width = 500;
         let height = 700;
-        let coeficiente = 255 / width;
+        let coeficiente = 255 / (width / 2);
         let r;
         let g;
         let b;
@@ -131,8 +131,8 @@ function global() {
                 g = x * coeficiente;
                 b = 0;
             } else {
-                r = x* coeficiente;
-                g = 255 - (x * coeficiente);
+                r = x * coeficiente;
+                g -= (x * coeficiente);
                 b = 0;
             }
 
@@ -143,49 +143,5 @@ function global() {
         ctx.putImageData(imageData, 200, 50);
     }
 
-    function gradient_tonal_armony() {
 
-        let ctx = document.querySelector("#tonal-gradient").getContext("2d");
-        let width = 500;
-        let height = 700;
-        let coeficienteR = 36 / (width/4);
-        let coeficienteG = 109 / (width/4);
-        let coeficienteB = 112 / (width/4);
-        let r; 
-        let g;
-        let b;
-        let imageData = ctx.createImageData(width, height);
-
-        for (let x = 0; x < width; x++) {
-
-            if (x < (width / 3)) {
-                r = 255 - (x * coeficienteR);
-                g = 255 - (x * coeficienteG);
-                b = 255 - (x * coeficienteB);
-
-            } else if (((width / 3) < x) && (x < width)) {
-                coeficienteR = 18 / (width/4);
-                coeficienteG = 89 / (width/4);
-                coeficienteB = 93 / (width/4);
-
-                r = 255 - (x * coeficienteR);
-                g = 255 - (x * coeficienteG);
-                b = 255 - (x * coeficienteR);
-            } else {
-                coeficienteR = 3 / (width/4);
-                coeficienteG = 66 / (width/4);
-                coeficienteB = 69 / (width/4);
-
-                r = 255 - (x * coeficienteR);
-                g = 255 - (x * coeficienteR);
-                b = 255 - (x * coeficienteR);
-            }
-
-            for (let y = 0; y < height; y++) {
-                setPixel(imageData, x, y, r, g, b, 255);
-            }
-        }
-        ctx.putImageData(imageData, 200, 50);
-    }
-
-    }
+}
