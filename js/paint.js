@@ -51,9 +51,11 @@ function draw_line(x1, y1, x2, y2, width) {
 
 function erase_all() {
     ctx.clearTo = function() {
+        canvas.width = 1000;
+        canvas.height = 600;
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
-    saved = null;
+    saved_image = null;
     ctx.clearTo();
 }

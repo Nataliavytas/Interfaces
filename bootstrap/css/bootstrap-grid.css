@@ -16,14 +16,6 @@ html {
     box-sizing: inherit;
 }
 
-.shown-filters {
-    display: grid;
-}
-
-.hidden-filters {
-    display: none;
-}
-
 .container,
 .container-fluid,
 .container-sm,
