@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Paint </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+</head>
+
+<body>
+    <ul class="nav mx-3 my-3">
+        <li class="nav-item">
+            <a class="nav-link"> <button type="button" id="pencil" class="btn btn-info"> <i class="fas fa-pencil-alt"></i> Lapiz </button> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"> <button type="button" class="btn btn-info"> Color <input type="color" id="color-picker"> </input> </button>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"> <button type="button" id="erase" class="btn btn-info"> <i class="fas fa-eraser"></i> Goma </button> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"> <button type="button" id="erase-all" class="btn btn-info"> <i class="fas fa-file"></i> Nuevo lienzo</button> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"> <button type="button" id="imageUpload" class="btn btn-info"><i class="far fa-image"></i> Cargar imagen</button> </a>
+            <input id="img-input-paint" type="file" accept="image/*"></input>
+        </li>
+        <li class="nav-item ml-3">
+            <button class="dropdown-toggle btn btn-info mt-2" id="filters-button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Filtros de imagen</button>
+            <div class="dropdown-menu bg-info">
+                <button class="dropdown-item" id="clear-effects"> Resetear imagen </button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" id="negative"> Negativo </button>
+                <button class="dropdown-item" id="sepia"> Sepia </button>
+                <button class="dropdown-item" id="binary"> Binarizacion </button>
+                <button class="dropdown-item" id="brightness"> Brillo </button>
+                <button class="dropdown-item" id="blur"> Difuminado </button>
+                <div class="dropdown-divider"></div>
+                <p class="text-center"> Nivel de Saturacion </p>
+                <input type="range" class="dropdown-item" id="saturation-level" value="0" min="0" max="100"> </input>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id="download-image" download="myImage.jpg"> Descargar imagen</a>
+            </div>
+        </li>
+    </ul>
+    <div>
+        <canvas id="canvas" class="mx-4 my-3" style="border:1px solid #000000;" width="1000" height="600"> </canvas>
+    </div>
+    <script src="js/paint.js"></script>
+    <script src="js/image-filters.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>
