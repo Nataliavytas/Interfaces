@@ -1,0 +1,20 @@
+.bg-picture {
+    background-image: url(../javascript/fondo.png);
+}
+
+.inicio {
+    display: block;
+    padding-right: 16px;
+}
+
+.canvas {
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: block !important;
+}
