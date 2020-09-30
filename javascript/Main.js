@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', setUp);
 document.querySelector('#playAgain').addEventListener('click', setUp);
 document.querySelector('#restart').addEventListener('click', setUp);
+
 //#region variables globales
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext('2d');
+const WINNER_ELEM = document.querySelector("#winner-span");
+const SECONDS = 30;
+let time = SECONDS;
 //#endregion
 
 
@@ -16,10 +20,10 @@ function setUp() {
 }
 
 function start() {
-
     //#region declaraciones para empezar. 
     let lastClickedToken = null;
     let isMouseDown = false;
+    time = SECONDS;
 
     let game = new Game();
     let player1_name = document.querySelector("#player1-name").value;
@@ -35,7 +39,6 @@ function start() {
 
     const COUNTDOWN_ELEM = document.querySelector("#countdown");
     const PLAYER_PLAYING_ELEM = document.querySelector("#player-playing");
-    let time = 30;
     //#endregion
 
     //#region declaracion de Event Listeners
@@ -65,11 +68,13 @@ function start() {
 
     function onMouseUp(event) {
         isMouseDown = false;
-        lastClickedToken.setHighlighted(false);
-        if (game.handleTurn(event, playerPlaying)) {
-            switchPlayer();
-        } else {
-            lastClickedToken.startPosition();
+        if (lastClickedToken != null) {
+            lastClickedToken.setHighlighted(false);
+            if (game.handleTurn(event, playerPlaying)) {
+                switchPlayer();
+            } else {
+                lastClickedToken.startPosition();
+            }
         }
         lastClickedToken = null;
         game.display(player_1, player_2)
@@ -83,7 +88,7 @@ function start() {
         } else {
             playerPlaying = player_1;
         }
-        time = 30;
+        time = SECONDS;
         PLAYER_PLAYING_ELEM.innerHTML = `${playerPlaying.getName()}`;
     }
 
@@ -104,11 +109,12 @@ function start() {
 }
 
 
-function showWinner() {
+function showWinner(winner) {
     $("#winner").modal({
         backdrop: 'static',
         keyboard: false
     });
+    WINNER_ELEM.innerHTML = `${winner.getName()}`;
 }
 
 function endGame() {

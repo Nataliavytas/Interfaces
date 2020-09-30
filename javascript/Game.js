@@ -87,7 +87,6 @@ class Game {
     }
 
     getRow(col) {
-            console.log(this.board);
             for (let row = this.NUM_ROWS - 1; row >= 0; row--) {
                 if (this.board[row][col] === "_") {
                     return row;
@@ -146,7 +145,6 @@ class Game {
         let id = this.actualPlayer.getId();
         for (let subrow = this.NUM_ROWS - 1; subrow > 3; subrow--) {
             for (let subcol = 0; subcol < 4; subcol++) {
-                console.log(this.board[subrow][subcol]);
                 if (this.board[subrow][subcol] === id) {
                     let diagonal1 = this.board[subrow - 1][subcol + 1];
                     let diagonal2 = this.board[subrow - 2][subcol + 2];
@@ -197,16 +195,12 @@ class Game {
     }
 
     declareWinner() {
-        showWinner();
+        showWinner(this.actualPlayer);
     }
 
     declareEnd() {
             endGame();
         }
         //#endregion
-
-    resetGame() {
-        console.log("empieza denueo")
-    }
 
 }

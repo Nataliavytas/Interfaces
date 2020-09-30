@@ -2,6 +2,9 @@ class Player {
     constructor(id, name, game) {
         this.id = id;
         this.name = name;
+        if (name == "") {
+            this.name = "Player " + this.id;
+        }
         this.tokens = [];
         this.game = game;
     }
@@ -18,7 +21,7 @@ class Player {
         for (let i = 0; i < 21; i++) {
             let token = new Token(posX, posY, 30, image);
             this.tokens.push(token);
-            posY = posY - 20;
+            posY = posY - 25;
 
         }
     }
