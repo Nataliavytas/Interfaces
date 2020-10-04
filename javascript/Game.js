@@ -98,6 +98,7 @@ class Game {
 
     //#region winner checks 
     checkForWinner() {
+        console.log(this.board);
         if ((this.checkHorizontalWin() || this.checkVerticalWin()) || (this.checkDiagonalWinLeft() || this.checkDiagonalWinRight())) {
             this.declareWinner();
         } else if (this.checkIfFull()) {
@@ -109,6 +110,7 @@ class Game {
         let id = this.actualPlayer.getId();
         let counter = 0;
         for (let row = this.NUM_ROWS - 1; row >= 0; row--) {
+            counter = 0;
             for (let col = 0; col < this.NUM_COLUMNS; col++) {
                 if (this.board[row][col] === id) {
                     counter++;
@@ -116,7 +118,7 @@ class Game {
                         return true;
                     }
                 } else {
-                    counter--;
+                    counter = 0;
                 }
             }
         }
@@ -127,6 +129,7 @@ class Game {
         let id = this.actualPlayer.getId();
         let counter = 0;
         for (let col = 0; col < 7; col++) {
+            counter = 0;
             for (let row = this.NUM_ROWS - 1; row >= 0; row--) {
                 if (this.board[row][col] === id) {
                     counter++;
@@ -134,7 +137,7 @@ class Game {
                         return true;
                     }
                 } else {
-                    counter--;
+                    counter = 0;
                 }
             }
         }

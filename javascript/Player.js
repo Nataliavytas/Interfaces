@@ -32,10 +32,14 @@ class Player {
         });
     }
 
+    deleteToken(token) {
+        token.setUsed();
+    }
+
     findClickedToken(x, y) {
         for (let index = 0; index < this.tokens.length; index++) {
             let element = this.tokens[index];
-            if (element.isPointInside(x, y)) {
+            if (element.isPointInside(x, y) && (!element.isUsed())) {
                 return element;
             }
         }

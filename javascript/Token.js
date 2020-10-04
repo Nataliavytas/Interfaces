@@ -10,6 +10,7 @@ class Token {
         this.highlightedStyle = 'yellow';
         this.startPosX = posX;
         this.startPosY = posY;
+        this.used = false;
     }
 
     draw() {
@@ -68,5 +69,13 @@ class Token {
     startPosition() {
         this.posX = this.startPosX;
         this.posY = this.startPosY;
+    }
+
+    setUsed() {
+        this.used = true;
+    }
+
+    isUsed() {
+        return this.used;
     }
 }

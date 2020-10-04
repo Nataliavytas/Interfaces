@@ -71,6 +71,7 @@ function start() {
         if (lastClickedToken != null) {
             lastClickedToken.setHighlighted(false);
             if (game.handleTurn(event, playerPlaying)) {
+                playerPlaying.deleteToken(lastClickedToken);
                 switchPlayer();
             } else {
                 lastClickedToken.startPosition();
@@ -102,7 +103,7 @@ function start() {
         }
     }
 
-    setInterval(updateCountdown, 1000);
+    //  setInterval(updateCountdown, 1000);
     //#endregion 
 
     game.display(player_1, player_2);
