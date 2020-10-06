@@ -146,7 +146,7 @@ class Game {
 
     checkDiagonalWinLeft() {
         let id = this.actualPlayer.getId();
-        for (let subrow = this.NUM_ROWS - 1; subrow > 3; subrow--) {
+        for (let subrow = this.NUM_ROWS - 1; subrow >= 3; subrow--) {
             for (let subcol = 0; subcol < 4; subcol++) {
                 if (this.board[subrow][subcol] === id) {
                     let diagonal1 = this.board[subrow - 1][subcol + 1];
@@ -163,7 +163,7 @@ class Game {
 
     checkDiagonalWinRight() {
         let id = this.actualPlayer.getId();
-        for (let subrow = this.NUM_ROWS - 1; subrow > 3; subrow--) {
+        for (let subrow = this.NUM_ROWS - 1; subrow >= 3; subrow--) {
             for (let subcol = 3; subcol < 7; subcol++) {
                 if (this.board[subrow][subcol] === id) {
                     let diagonal1 = this.board[subrow - 1][subcol - 1];
