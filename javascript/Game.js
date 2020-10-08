@@ -17,7 +17,7 @@ class Game {
 
     //#region display
     display(player1, player2) {
-        this.clearCanvas();
+        clearCanvas();
         this.displayBoard()
         player1.drawTokens();
         player2.drawTokens();
@@ -44,7 +44,7 @@ class Game {
         let posY = event.layerY;
         let token = this.actualPlayer.findClickedToken(posX, posY);
         let col;
-
+        console.log("is valid played")
         switch (true) {
             case (posX < 300):
                 return false;
@@ -191,19 +191,12 @@ class Game {
         }
         //#endregion
 
-    //#region utilities
-    clearCanvas() {
-        context.fillStyle = '#F8F8FF';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-    }
-
     declareWinner() {
         showWinner(this.actualPlayer);
     }
 
     declareEnd() {
-            endGame();
-        }
-        //#endregion
+        endGame();
+    }
 
 }

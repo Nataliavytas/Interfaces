@@ -8,6 +8,16 @@ let context = canvas.getContext('2d');
 const WINNER_ELEM = document.querySelector("#winner-span");
 const SECONDS = 30;
 let time = SECONDS;
+let lastClickedToken = null;
+let isMouseDown = false;
+let game;
+// let player1_name;
+// let player2_name;
+let player_1;
+let player_2;
+let playerPlaying;
+const COUNTDOWN_ELEM = document.querySelector("#countdown");
+const PLAYER_PLAYING_ELEM = document.querySelector("#player-playing");
 //#endregion
 
 
@@ -21,24 +31,22 @@ function setUp() {
 
 function start() {
     //#region declaraciones para empezar. 
-    let lastClickedToken = null;
-    let isMouseDown = false;
+    lastClickedToken = null;
+    isMouseDown = false;
     time = SECONDS;
 
-    let game = new Game();
+    game = new Game();
     let player1_name = document.querySelector("#player1-name").value;
     let player2_name = document.querySelector("#player2-name").value;
-    let player_1 = new Player(1, player1_name, game);
-    let player_2 = new Player(2, player2_name, game);
-    let playerPlaying = player_1;
+    player_1 = new Player(1, player1_name, game);
+    player_2 = new Player(2, player2_name, game);
+    playerPlaying = player_1;
 
     let earth = document.getElementById("earth");
     let mars = document.getElementById("mars");
     player_1.setTokens(earth, 100, 600);
     player_2.setTokens(mars, 1200, 600);
-
-    const COUNTDOWN_ELEM = document.querySelector("#countdown");
-    const PLAYER_PLAYING_ELEM = document.querySelector("#player-playing");
+    game.display(player_1, player_2);
     //#endregion
 
     //#region declaracion de Event Listeners
@@ -47,40 +55,40 @@ function start() {
     canvas.addEventListener('mousemove', onMouseMoved, false);
     PLAYER_PLAYING_ELEM.innerHTML = `${playerPlaying.getName()}`;
     //#endregion
+}
+//#region Mouse Events
 
-    //#region Mouse Events
-    function onMouseDown(event) {
-        isMouseDown = true;
-        let clickedToken = playerPlaying.findClickedToken(event.layerX, event.layerY);
-        if (clickedToken != null) {
-            clickedToken.setHighlighted(true);
-            lastClickedToken = clickedToken;
-        }
+function onMouseDown(event) {
+    isMouseDown = true;
+    let clickedToken = playerPlaying.findClickedToken(event.layerX, event.layerY);
+    if (clickedToken != null) {
+        clickedToken.setHighlighted(true);
+        lastClickedToken = clickedToken;
+    }
+    game.display(player_1, player_2);
+}
+
+function onMouseMoved(event) {
+    if (isMouseDown && lastClickedToken != null) {
+        lastClickedToken.setPosition(event.layerX, event.layerY);
         game.display(player_1, player_2);
     }
+}
 
-    function onMouseMoved(event) {
-        if (isMouseDown && lastClickedToken != null) {
-            lastClickedToken.setPosition(event.layerX, event.layerY);
-            game.display(player_1, player_2);
+function onMouseUp(event) {
+    isMouseDown = false;
+    if (lastClickedToken != null) {
+        lastClickedToken.setHighlighted(false);
+        if (game.handleTurn(event, playerPlaying)) {
+            playerPlaying.deleteToken(lastClickedToken);
+            switchPlayer();
+        } else {
+            lastClickedToken.startPosition();
         }
     }
-
-    function onMouseUp(event) {
-        isMouseDown = false;
-        if (lastClickedToken != null) {
-            lastClickedToken.setHighlighted(false);
-            if (game.handleTurn(event, playerPlaying)) {
-                playerPlaying.deleteToken(lastClickedToken);
-                switchPlayer();
-            } else {
-                lastClickedToken.startPosition();
-            }
-        }
-        lastClickedToken = null;
-        game.display(player_1, player_2)
-    }
-    //#endregion 
+    lastClickedToken = null;
+    game.display(player_1, player_2)
+        //#endregion 
 
     //#region timer
     function switchPlayer() {
@@ -115,6 +123,10 @@ function showWinner(winner) {
         backdrop: 'static',
         keyboard: false
     });
+    clearCanvas();
+    canvas.removeEventListener('mousedown', onMouseDown, false);
+    canvas.removeEventListener('mouseup', onMouseUp, false);
+    canvas.removeEventListener('mousemove', onMouseMoved, false);
     WINNER_ELEM.innerHTML = `${winner.getName()}`;
 }
 
@@ -123,4 +135,13 @@ function endGame() {
         backdrop: 'static',
         keyboard: false
     });
+    clearCanvas();
+    canvas.removeEventListener('mousedown', onMouseDown, false);
+    canvas.removeEventListener('mouseup', onMouseUp, false);
+    canvas.removeEventListener('mousemove', onMouseMoved, false);
+}
+
+function clearCanvas() {
+    context.fillStyle = '#F8F8FF';
+    context.fillRect(0, 0, canvas.width, canvas.height);
 }
