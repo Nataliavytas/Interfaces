@@ -44,7 +44,6 @@ class Game {
         let posY = event.layerY;
         let token = this.actualPlayer.findClickedToken(posX, posY);
         let col;
-        console.log("is valid played")
         switch (true) {
             case (posX < 300):
                 return false;
@@ -98,7 +97,6 @@ class Game {
 
     //#region winner checks 
     checkForWinner() {
-        console.log(this.board);
         if ((this.checkHorizontalWin() || this.checkVerticalWin()) || (this.checkDiagonalWinLeft() || this.checkDiagonalWinRight())) {
             this.declareWinner();
         } else if (this.checkIfFull()) {

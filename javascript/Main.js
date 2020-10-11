@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', setUp);
 document.querySelector('#playAgain').addEventListener('click', setUp);
 document.querySelector('#restart').addEventListener('click', setUp);
+document.querySelector('#gameover').addEventListener('click', setUp);
 
 //#region variables globales
 let canvas = document.querySelector("#canvas");
@@ -30,6 +31,7 @@ function setUp() {
 }
 
 function start() {
+    clearCanvas();
     //#region declaraciones para empezar. 
     lastClickedToken = null;
     isMouseDown = false;
