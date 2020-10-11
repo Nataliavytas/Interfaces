@@ -1,0 +1,145 @@
+body,
+html {
+    height: 100%;
+}
+
+#parallax {
+    background-color: black;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+}
+
+#parallax .layer-1 {
+    background: url(stars.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    animation: sky 35s infinite linear;
+}
+
+#parallax .layer-2 {
+    background: url(stars.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    animation: sky 20s infinite linear;
+}
+
+#parallax .layer-3 {
+    background: url(clouds.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    animation: sky 15s infinite linear;
+}
+
+#movie-description {
+    position: relative;
+    display: block;
+    background-color: red;
+    width: 50%;
+    height: 30%;
+    transition: ease-in 1s;
+}
+
+#curious-facts {
+    position: relative;
+    display: block;
+    background-color: indigo;
+    width: 50%;
+    height: 30%;
+}
+
+.countdown {
+    background-color: black;
+    height: 300px;
+    width: 100vw;
+}
+
+#number {
+    background: url(countdown.png);
+    width: 100px;
+    height: 200px;
+    margin: auto;
+    animation: run 10s steps(10) infinite;
+}
+
+.characters {
+    display: block;
+}
+
+.characters .char-1,
+.char-2,
+.char-3 {
+    width: 33%;
+    height: 600px;
+    display: inline-block;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1);
+    transition: all 1s ease-in;
+}
+
+.characters .char-1:hover,
+.char-2:hover,
+.char-3:hover {
+    transition: all 1s ease-in;
+    transform: scale(1.2);
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 3;
+}
+
+.char-1 {
+    background: url(https://img.freepik.com/vetores-gratis/imagens-animadas-abstratas-neon-lines_23-2148344065.jpg?size=626&ext=jpg);
+}
+
+.char-2 {
+    background: url(https://marquesfernandes.com/wp-content/uploads/2020/03/alexander-popov-iQqqo2zpmTI-unsplash-scaled.jpg);
+}
+
+.char-3 {
+    background: url(https://www.lupadigital.info/wp-content/uploads/2018/05/imagens-gratis.jpg);
+}
+
+@keyframes run {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 1000px;
+    }
+}
+
+@keyframes sky {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 2000px;
+    }
+}
