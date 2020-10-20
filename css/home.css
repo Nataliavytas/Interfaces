@@ -306,14 +306,14 @@ nav {
 #movie-description p {
     text-align: left;
     padding: 1em;
-    font-size: 18px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.7);
 }
 
 #curious-facts p {
     text-align: right;
     padding: 1em;
-    font-size: 18px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.7);
 }
 
