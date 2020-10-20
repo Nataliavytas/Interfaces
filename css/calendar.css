@@ -1,0 +1,198 @@
+body {
+    background-color: black;
+}
+
+.events {
+    margin: 10vh 10vw;
+    border-radius: 10px;
+}
+
+.title {
+    text-align: center;
+    display: block;
+    color: white;
+    margin-top: 5%;
+}
+
+.event-description {
+    float: left;
+    width: 30%;
+    font-size: 16px;
+}
+
+.accordion {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #00fff7;
+    color: black;
+    background: #eef4ed;
+}
+
+.accordion>.accordion-toggle {
+    position: absolute;
+    opacity: 0;
+    display: none;
+}
+
+.accordion>label {
+    position: relative;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-top: 2px solid #05aaa5;
+    color: black;
+    background: #eef4ed;
+    cursor: pointer;
+}
+
+.accordion>section {
+    overflow: hidden;
+}
+
+.accordion>.accordion-toggle:checked~section {
+    transition: all 0.8s ease-in-out;
+    height: 50vh;
+}
+
+.accordion>.accordion-toggle:not(:checked)~section {
+    transition: all 0.8s ease-in-out;
+    height: 0;
+    visibility: hidden;
+}
+
+.accordion>section p {
+    margin: 30px 0;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* Fliping cards*/
+
+.card {
+    position: relative;
+    width: 350px;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+}
+
+.event-1 #card-1 {
+    margin-top: 3%;
+    margin-right: 2%;
+}
+
+.event-1 #card-2 {
+    margin-top: 3%;
+    margin-right: 3%;
+}
+
+.event-2 #card-1 {
+    margin-top: 3%;
+    margin-right: 2%;
+}
+
+.event-2 #card-2 {
+    margin-top: 3%;
+    margin-right: 3%;
+}
+
+.event-3 #card-1 {
+    margin-top: 3%;
+    margin-right: 2%;
+}
+
+.event-3 #card-2 {
+    margin-top: 3%;
+    margin-right: 3%;
+}
+
+.card:hover .card-content {
+    transform: rotateY(.5turn);
+}
+
+.card-content {
+    height: 150px;
+    text-align: center;
+    position: relative;
+    padding: 5rem;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+}
+
+.card-back p {
+    margin-top: 50px;
+}
+
+.card-back,
+.card-front {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    align-content: center;
+    border-radius: 10px;
+}
+
+.card-front {
+    background-size: cover;
+}
+
+.event-1 #card-1 .card-front {
+    background-image: url("../assets/amanda-seyfried.jpg");
+}
+
+.event-1 #card-2 .card-front {
+    background-image: url("../assets/andrew-niccol.jpg");
+}
+
+.event-2 #card-1 .card-front {
+    background-image: url("../assets/clive-owen.jpg");
+}
+
+.event-2 #card-2 .card-front {
+    background-image: url("../assets/amanda-seyfried.jpg");
+}
+
+.event-3 #card-1 .card-front {
+    background-image: url("../assets/andrew-niccol.jpg");
+}
+
+.event-3 #card-2 .card-front {
+    background-image: url("../assets/clive-owen.jpg");
+}
+
+.card-front::before {
+    position: absolute;
+    top: 1em;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    transform: translateZ(3rem)
+}
+
+.card-back {
+    transform: rotateY(.5turn);
+    background: white;
+}
+
+.card-title {
+    margin-top: 70%;
+    color: black;
+    font-size: 1.5rem;
+    transform: translateZ(6rem);
+    background-color: rgba(255, 255, 255, 0.699);
+}
+
+.card-body {
+    color: black;
+    font-size: 1.3rem !important;
+    transform: translateZ(3rem);
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contact </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/loader.css">
+</head>
+
+<body>
+    <div class="loader-container">
+        <span class="loader">
+        <span class="loader-inner"> </span>
+        </span>
+    </div>
+
+    <div class="web-body">
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <ul id="menu">
+                    <a href="index.html">
+                        <li> Home </li>
+                    </a>
+                    <a href="calendar.html">
+                        <li> Calendario </li>
+                    </a>
+                    <a href="form.html">
+                        <li> Contacto </li>
+                    </a>
+                    <a href="#">
+                        <li> Otro link </li>
+                    </a>
+                    <a href="#">
+                        <li> Otro link </li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="contact-form">
+            <h2> Send a Comment! </h2>
+            <form id="contact" name="contact">
+                <input type="text" name="name" id="name" placeholder="Name" />
+
+                <input type="email" name="email" id="email" placeholder="Email" />
+
+                <label> <span> Comment </span>
+            <textarea name="comment" id="comment"> </textarea> 
+            </label>
+                <button type="button" id="submit-button">Send</button>
+            </form>
+        </section>
+    </div>
+    <script src="js/form.js"></script>
+    <script src="js/loader.js"></script>
+</body>
+
+</html>

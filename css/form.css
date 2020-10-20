@@ -1,0 +1,170 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+
+/* Styles */
+
+body {
+    background-color: black;
+    color: white;
+}
+
+#contact-form {
+    width: 600px;
+    margin: 3em auto;
+    height: 400px;
+    font-size: 20px;
+    text-align: center;
+    background-color: black;
+    animation: 2s components 3s ease-in;
+}
+
+#container h2 {
+    font-size: 40px;
+    transition: 1s ease-in;
+    font-weight: 200;
+}
+
+form {
+    padding: 20px 0;
+}
+
+form label {
+    color: white;
+    font-weight: 300;
+}
+
+form ::-webkit-input-placeholder {
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+input,
+textarea {
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 80%;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    display: block;
+    color: white;
+    transition-duration: 0.25s;
+    font-weight: 300;
+}
+
+input {
+    height: 3em;
+}
+
+textarea {
+    height: 6em;
+    resize: none;
+}
+
+form button {
+    outline: 0;
+    background-color: white;
+    width: 80%;
+    height: 2em;
+    color: #53e3a6;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    transition-duration: 0.25;
+}
+
+
+/* Interaction */
+
+input:hover,
+textarea:hover {
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+textarea:focus,
+input:focus {
+    background-color: white;
+    width: 90%;
+    border: none;
+    border-radius: 3px;
+    color: #53e3a6;
+    box-shadow: -3px 3px 0px 0px #ff0000, -6px 6px 0px 0px turquoise;
+}
+
+form button:hover {
+    background-color: #f5f7f9;
+}
+
+.form-success h2 {
+    animation: form-sent 4s ease-in-out;
+}
+
+.form-success form {
+    animation: form-sent 4s ease-in-out;
+}
+
+.form-invalid input,
+.form-invalid textarea {
+    background-color: rgba(241, 51, 51, 0.5);
+    animation: form-move 0.15s ease-in-out;
+}
+
+
+/* Animations  */
+
+@keyframes form-move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(7px);
+    }
+}
+
+@keyframes title-move {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+}
+
+@keyframes form-sent {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes components {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

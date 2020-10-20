@@ -1,110 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-    <title> Game </title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title> Home </title>
 </head>
 
-<body class="bg-picture">
-
-    <div class="text-white m-4 mb-2">
-        <h3>It's <span id="player-playing"></span>'s Turn</h3>
-        <h3 id="countdown"> </h3>
-    </div>
-    <div class="text-white">
-        <button id="restart" class="btn btn-dark float-left m-4"> Restart Game </button>
+<body>
+    <div class="loader-container">
+        <span class="loader">
+        <span class="loader-inner"> </span>
+        </span>
     </div>
 
-    <div>
-        <canvas class="ml-3" id="canvas" height="700" width="1300"> </canvas>
-    </div>
+    <div class="web-body">
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
 
-    <div class="modal fade" id="startGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Start game</h5>
-                    </button>
+                <ul id="menu">
+                    <a href="index.html">
+                        <li> Home </li>
+                    </a>
+                    <a href="calendar.html">
+                        <li> Calendario </li>
+                    </a>
+                    <a href="form.html">
+                        <li> Contacto </li>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=RJOoYhQcQBI">
+                        <li> Trailer </li>
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/Anon_(film)">
+                        <li> Info </li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="parallax-container">
+            <div id="parallax">
+                <h1 class="title"> ANON </h1>
+                <div class="layer layer-1"> </div>
+                <div class="layer layer-2"> </div>
+                <div class="layer layer-3"> </div>
+            </div>
+        </div>
+
+
+        <div class="countdown">
+            <p>
+                <span> Dias</span>
+                <span> Horas </span>
+                <span> Minutos </span>
+                <span> Segundos </span>
+            </p>
+            <h2>
+                <span id="days"> </span>:
+                <span id="hours"> </span>:
+                <span id="minutes"> </span>:
+                <span id="seconds"> </span>
+            </h2>
+        </div>
+
+        <div class="container">
+            <div id="movie-description" class="hidden">
+                <p>
+                    Anon is a 2018 British-American[2][3][4] science fiction thriller film written and directed by Andrew Niccol, and financed by Sky Cinema Original Films.[5] The film stars Amanda Seyfried and Clive Owen, with Colm Feore, Mark O'Brien, Sonya Walger, Joe
+                    Pingue, and Iddo Goldberg appearing in supporting roles. Set in a futuristic world where privacy and anonymity no longer exist, the plot follows a troubled detective (Owen) who comes across a young woman (Seyfried) who has evaded the
+                    government's transparency system. </p>
+            </div>
+
+            <div id="curious-facts" class="hidden">
+                <p>
+                    The film was released internationally as a "Netflix Original" on the streaming service, from 4 May 2018, whilst in the United Kingdom and Ireland, the film was released in cinemas by Altitude Film Distribution and through on-demand by Sky Cinema on 11
+                    May 2018.
+                </p>
+            </div>
+        </div>
+
+        <div class="characters">
+            <div class="char-1"> <span class="char-name"> Sal Frieland </span> </div>
+            <div class="char-2"> <span class="char-name"> The Girl </span> </div>
+        </div>
+
+        <div class="carrousel">
+            <div class="slidershow middle">
+                <div class="slides">
+
+                    <input type="radio" name="r" id="r1" checked>
+                    <input type="radio" name="r" id="r2">
+                    <input type="radio" name="r" id="r3">
+                    <input type="radio" name="r" id="r4">
+                    <input type="radio" name="r" id="r5">
+
+                    <div class="slide s1">
+                        <img src="../Entregable3/assets/carousel-2.jpg" alt="">
+                    </div>
+                    <div class="slide s2">
+                        <img src="../Entregable3/assets/carousel-3.jpg" alt="">
+                    </div>
+                    <div class="slide s3">
+                        <img src="../Entregable3/assets/carousel-4.jpg" alt="">
+                    </div>
                 </div>
 
-                <div class="modal-body">
-                    <p> The rules are simple: Try to build a row of four tokens while keeping your opponent from doing the same.</p>
-                    <p> The browser recommended zoom is 90%. </p>
-                    <form>
-                        <div class="form-group">
-                            <label for="player1-name"> Player 1 </label>
-                            <input type="text" class="form-control" id="player1-name" aria-describedby="emailHelp" placeholder="Enter player 1 name">
-                        </div>
-                        <div class="form-group">
-                            <label for="player2-name">Player 2</label>
-                            <input type="text" class="form-control" id="player2-name" placeholder="Enter player 2 name">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="startGame" data-dismiss="modal" class="btn btn-dark">Start </button>
+                <div class="navigation">
+                    <label for="r1" class="bar"></label>
+                    <label for="r2" class="bar"></label>
+                    <label for="r3" class="bar"></label>
                 </div>
             </div>
         </div>
+
     </div>
 
-    <div class="modal fade" id="winner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> We have a winner! Congratulations <span id="winner-span"></span></h5>
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="playAgain" data-dismiss="modal" class="btn btn-dark"> Play again </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="game-over" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Game over </h5>
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="gameover" data-dismiss="modal" class="btn btn-dark"> Play again </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="hidden">
-        <img src="./images/tablero.png" width="800" height="800" id="bg-image">
-        <img src="./images/tierra.png" id="earth">
-        <img src="./images/marte.png" id="mars">
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="./javascript/Main.js">
-    </script>
-    <script src="./javascript/Token.js">
-    </script>
-    <script src="./javascript/Game.js">
-    </script>
-    <script src="./javascript/Player.js">
-    </script>
-
+    <script src="js/loader.js"></script>
+    <script src="js/home.js"></script>
 </body>
 
 </html>
